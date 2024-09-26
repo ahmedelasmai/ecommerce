@@ -10,22 +10,25 @@ class Categories(models.Model):
         return self.name
 
 class Products(models.Model):
-
-    SIZE_CHOICES = [
-        ('S', 'Small'),
-        ('M', 'Medium'),
-        ('L', 'Large'),
-    ]
-
     name = models.CharField(max_length=255)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    size = models.CharField(max_length=1, choices=SIZE_CHOICES)
-    stock = models.IntegerField()
-    image = models.ImageField(upload_to='static/products/images/products')
+    image = models.ImageField(upload_to='products/static/products/images/products')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Categories, on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ['category','price']
+
     def __str__(self):
         return self.name
+
+class Stock(models.Model):
+    product = models.ForeignKey(Products,on_delete=models.CASCADE)
+    small = models.IntegerField()
+    medium = models.IntegerField()
+    large = models.IntegerField()
+
+    def __str__(self):
+        return str(self.product) + "_stock"
