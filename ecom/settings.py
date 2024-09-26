@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'user',
     'products',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -73,6 +74,8 @@ WSGI_APPLICATION = 'ecom.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+
+AUTH_USER_MODEL = 'user.User'
 
 DATABASES = {
     'default': {
@@ -117,7 +120,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
+LOGIN_REDIRECT_URL = '/products/'
+LOGIN_URL = '/user/login'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
