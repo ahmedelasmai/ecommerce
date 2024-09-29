@@ -34,6 +34,7 @@ def product(request,pk):
                     if str(product.id) in cart:
                         cart[str(product.id)]['quantity'] += quantity
                     else:
+                        product.price = float(product.price) * quantity
                         cart[str(product.id)] = {
                             'name': product.name,
                             'price': str(product.price),
