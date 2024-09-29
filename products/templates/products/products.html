@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
     <!-- custom css file link -->
-    <link rel="stylesheet" href="{% static 'products/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
 
 <body>
 
     <section id="header">
-        <a href="#"><img src="{% static 'products/images/logo.png' %}" class="logo" alt=""></a>
+        <a href="#"><img src="{% static 'images/logo.png' %}" class="logo" alt=""></a>
         <div>
             <ul id="navbar">
                 <li><a href="index.html">Home</a></li>
@@ -48,7 +48,7 @@
         <div class="pro-container">
             {% for product in page_obj %}
             <div class="pro" onclick="window.location.href='{% url 'product' product.id %}';">
-                <img src="{% static 'products/images/products/f1.jpg' %}" alt="">
+                <img src="{% static 'images/products/f1.jpg' %}" alt="">
                 <div class="des">
                     <span>{{ product.category }}</span>
                     <h5>{{ product.name }}</h5>
@@ -100,7 +100,7 @@
 
     <footer class="section-p1">
         <div class="col">
-            <img class="logo" src="{% static 'products/images/logo.png' %}" alt="">
+            <img class="logo" src="{% static 'images/logo.png' %}" alt="">
             <h4>Contact</h4>
             <p><strong>Address:</strong> london </p>
             <p><strong>Phone:</strong> +44 7496046363</p>
@@ -136,11 +136,11 @@
             <h4>Install App</h4>
             <p>From App Store or Google Play</p>
             <div class="row">
-                <img src="{% static 'products/images/pay/app.jpg' %}" alt="">
-                <img src="{% static 'products/images/pay/play.jpg' %}" alt="">
+                <img src="{% static 'images/pay/app.jpg' %}" alt="">
+                <img src="{% static 'images/pay/play.jpg' %}" alt="">
             </div>
             <p>Secured Payment Gateway</p>
-            <img src="{% static 'products/images/pay/pay.png' %}" alt="">
+            <img src="{% static 'images/pay/pay.png' %}" alt="">
         </div>
         <div class="copyright">
             <p>Created By  | All Rights Reserved | &#169; 2023</p>
@@ -148,7 +148,7 @@
     </footer>
 
     <!-- javascript script file link -->
-    <script src="{% static 'products/script.js' %}"></script>
+    <script src="{% static 'script.js' %}"></script>
 </body>
 
 </html>
