@@ -1,7 +1,9 @@
 from django.shortcuts import render,redirect
 from django.db import transaction
 from products.models import Stock
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def index(request):
     cart = request.session.get('cart', {})
     overall_price = 0.00
@@ -9,6 +11,7 @@ def index(request):
         overall_price += float(product['price'])
     return render(request, 'cart/index.html',{'cart': cart, 'overall_price': format(overall_price,'.2f')}) 
 
+@login_required
 def remove_cart_item(request,id=id):
     cart = request.session.get('cart', {})
     
