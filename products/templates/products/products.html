@@ -48,7 +48,7 @@
         <div class="pro-container">
             {% for product in page_obj %}
             <div class="pro" onclick="window.location.href='{% url 'product' product.id %}';">
-                <img src="{% static 'images/products/f1.jpg' %}" alt="">
+                <img src="{% static product.image.url|slice:"7:" %}" alt="">
                 <div class="des">
                     <span>{{ product.category }}</span>
                     <h5>{{ product.name }}</h5>
@@ -80,23 +80,6 @@
         {% endif %}
         </span>
     </section>
-
-    {% comment %} <section id="pagination" class="section-p1">
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#"><i class="fas fa-long-arrow-alt-right"></i></a>
-    </section> {% endcomment %}
-
-    {% comment %} <section id="newsletter" class="section-p1 section-m1">
-        <div class="newstext">
-            <h4>Sign Up For Newsletter</h4>
-            <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
-        </div>
-        <div class="form">
-            <input type="text" placeholder="Your email address">
-            <button class="normal">Sign Up</button>
-        </div>
-    </section> {% endcomment %}
 
     <footer class="section-p1">
         <div class="col">
