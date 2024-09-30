@@ -235,7 +235,8 @@ body {
 
 #product1 .pro-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 28px;
     padding-top: 20px;
     flex-wrap: wrap;
 }
