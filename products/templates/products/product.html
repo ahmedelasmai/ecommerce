@@ -179,10 +179,14 @@
         </div>
         <div class="col">
             <h4>My Account</h4>
-            <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <button class="link-button" type="submit">Log Out</button>
-            </form>
+            {% if user.is_authenticated %}
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button class="link-button" type="submit">Log Out</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
             <a href="/cart/">View Cart</a>
             <a href="#">Track My Order</a>
             <a href="#">Help</a>
