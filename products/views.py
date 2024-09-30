@@ -32,12 +32,13 @@ def product(request,pk):
                     cart = request.session.get('cart', {})
 
                     if str(product.id) in cart:
-                        cart[str(product.id)]['quantity'] += quantity
+                        cart[str(product.id)]['quantity'] += int(quantity)
+                        cart[str(product.id)]['price'] = str(format(product.price * cart[str(product.id)]['quantity'],'.2f'))
                     else:
                         product.price = float(product.price) * quantity
                         cart[str(product.id)] = {
                             'name': product.name,
-                            'price': str(product.price),
+                            'price': str(format(product.price,'.2f')),
                             'quantity': quantity,
                             'size': size,
                             'image_location': str(product.image)
