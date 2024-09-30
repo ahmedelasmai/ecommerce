@@ -34,11 +34,9 @@
             <i id="bar" class="fas fa-outdent"></i>
         </div>
     </section>
-
-    {% comment %} <section id="page-header" class="about-header">
-        <h2>#cart</h2>
-    </section> {% endcomment %}
-
+    {% if cart.items|length == 0 %}
+    <h2 class="cart-empty">no items in cart</h2>
+    {% else %}
     <section id="cart" class="section-p1">
         <table width="100%">
             <thead>
@@ -80,7 +78,7 @@
             <button class="normal">Proceed to checkout</button>
         </div>
     </section>
-
+    {% endif %}
     <footer class="section-p1">
         <div class="col">
             <img class="logo" src="{% static 'images/logo.png' %}" alt="">

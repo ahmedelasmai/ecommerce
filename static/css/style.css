@@ -857,7 +857,9 @@ footer .copyright {
 }
 
 /* Cart Page */
-
+.cart-empty {
+    padding: 200px 550px;
+}
 #cart {
     overflow-x: auto;
 }
