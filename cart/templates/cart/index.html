@@ -19,15 +19,13 @@
 <body>
 
     <section id="header">
-        <a href="#"><img src="{% static 'images/logo.png' %}" class="logo" alt=""></a>
+        <a href="{% url 'products' %}"><img src="{% static 'images/logo.png' %}" class="logo" alt=""></a>
         <div>
             <ul id="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li id="lg-bag"><a class="active" href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+                <li><a href="{% url 'products' %}">Shop</a></li>
+                <li><a class="active" href="/cart/">cart</a></li>
+                <li><a>About</a></li>
+                <li><a>Contact</a></li>
                 <a href="#" id="close"><i class="far fa-times"></i></a>
             </ul>
         </div>
@@ -37,10 +35,9 @@
         </div>
     </section>
 
-    <section id="page-header" class="about-header">
+    {% comment %} <section id="page-header" class="about-header">
         <h2>#cart</h2>
-        <p>Add your coupon code & SAVE upto 70%!</p>
-    </section>
+    </section> {% endcomment %}
 
     <section id="cart" class="section-p1">
         <table width="100%">
@@ -88,9 +85,9 @@
         <div class="col">
             <img class="logo" src="{% static 'images/logo.png' %}" alt="">
             <h4>Contact</h4>
-            <p><strong>Address:</strong> Lahore, Pakistan - 54840</p>
-            <p><strong>Phone:</strong> +92-321-4655990</p>
-            <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+            <p><strong>Address:</strong> UK, London </p>
+            <p><strong>Phone:</strong> +44-321-4655990</p>
+            <p><strong>Hours:</strong> 10:00 - 17:00, Mon - Fri</p>
             <div class="follow">
                 <h4>Follow us</h4>
                 <div class="icon">
@@ -112,21 +109,16 @@
         </div>
         <div class="col">
             <h4>My Account</h4>
-            <a href="#">Sign In</a>
-            <a href="#">View Cart</a>
-            <a href="#">My Wishlist</a>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button class="link-button" type="submit">Log Out</button>
+            </form>
+            
+            <a href="/cart/">View Cart</a>
             <a href="#">Track My Order</a>
             <a href="#">Help</a>
         </div>
         <div class="col install">
-            <h4>Install App</h4>
-            <p>From App Store or Google Play</p>
-            <div class="row">
-                <img src="{% static 'images/app.jpg' %}" alt="">
-                <img src="{% static 'images/play.jpg' %}" alt="">
-            </div>
-            <p>Secured Payment Gateway</p>
-            <img src="{% static 'images/pay.png' %}" alt="">
         </div>
         <div class="copyright">
             <p>Created By  | All Rights Reserved | &#169; 2024</p>
