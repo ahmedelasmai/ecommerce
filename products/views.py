@@ -41,7 +41,7 @@ def product(request,pk):
                             'price': str(format(product.price,'.2f')),
                             'quantity': quantity,
                             'size': size,
-                            'image_location': str(product.image)
+                            'image_location': str(product.image.url)
                         }   
                     request.session['cart'] = cart
                     request.session.modified = True
