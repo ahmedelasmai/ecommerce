@@ -39,7 +39,7 @@
 
     <section id="productdetails" class="section-p1">
         <div class="single-pro-image">
-            <img src="{% static 'images/products/f1.jpg' %}" width="100%" id="MainImg" alt="">
+            <img src="{% static product.image.url|slice:"7:" %}" width="100%" id="MainImg" alt="">
         </div>
         <div class="single-pro-details">
             <h6>product / {{ product.category }}</h6>
