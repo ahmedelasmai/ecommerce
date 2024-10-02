@@ -7,6 +7,19 @@
     font-family: 'Spartan',sans-serif;
 }
 
+.normal2 {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s ease;
+    background-color: #088178;
+    color: #fff;
+}
+
 .link-button {
     background: none;
     border: none;
