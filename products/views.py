@@ -1,14 +1,30 @@
 from django.db import transaction
 from django.shortcuts import render,get_object_or_404,redirect
-from django.views.generic import ListView
+from django.urls import reverse
+from django.views.generic import ListView,CreateView
 from django.contrib import messages 
 from .models import Products,Stock
-from .forms import ProductForm
+from .forms import ProductForm,UploadModelForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class products(ListView):
     paginate_by = 20
     model = Products
     template_name = 'products/products.html'
+
+
+class upload(LoginRequiredMixin,CreateView):
+    model = Products
+    form_class = UploadModelForm
+    template_name = 'products/upload.html'
+
+    def form_valid(self,form):
+        form.instance.user = self.request.user
+        
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('products')
 
 def product(request,pk):
     product = get_object_or_404(Products,pk=pk)
