@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.conf import settings
+User = settings.AUTH_USER_MODEL
     
 def image_upload_to(instance, filename):
     ext = filename.split('.')[-1]
@@ -23,6 +24,7 @@ class Products(models.Model):
         ('others','others')
     ) 
     category = models.CharField(choices=CATEGORY_CHOICE,max_length=255)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
 
 
     class Meta:
