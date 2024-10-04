@@ -4,27 +4,34 @@ from django.urls import reverse
 from django.views.generic import ListView,CreateView
 from django.contrib import messages 
 from .models import Products,Stock
-from .forms import ProductForm,UploadModelForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import ProductForm,ProductModelForm,StockModelForm
+from django.contrib.auth.decorators import login_required
 
 class products(ListView):
     paginate_by = 20
     model = Products
     template_name = 'products/products.html'
 
+@login_required
+def upload(request):
+    product_form = ProductModelForm(request.POST or None,request.FILES,prefix='product')
+    stock_form = StockModelForm(request.POST or None,prefix='stock')
+    
+    if product_form.is_valid() and stock_form.is_valid():
+        product = product_form.save(commit=False)
+        product.user = request.user
+        product.save()
+        stock = stock_form.save(commit=False)
+        stock.product = product
+        stock.save()
+        return redirect('products')
+   
+    context = {
+        'product_form': product_form,  
+        'stock_form': stock_form,
+    }
+    return render(request,'products/upload.html',context=context)
 
-class upload(LoginRequiredMixin,CreateView):
-    model = Products
-    form_class = UploadModelForm
-    template_name = 'products/upload.html'
-
-    def form_valid(self,form):
-        form.instance.user = self.request.user
-        
-        return super().form_valid(form)
-
-    def get_success_url(self):
-        return reverse('products')
 
 def product(request,pk):
     product = get_object_or_404(Products,pk=pk)

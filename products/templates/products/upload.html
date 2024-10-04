@@ -31,7 +31,11 @@
         <div class="single-pro-details">
                 <form method="POST" action="{% url 'upload' %}" enctype="multipart/form-data">
                     {% csrf_token%}
-                    {{ form.as_p }}
+                    <h3> product </h3>
+                    {{ product_form.as_p }}
+                    <br>
+                    <h3> stock </h3>
+                    {{ stock_form.as_p }}
                     <button type="submit" class="normal2">Submit</button>
                 </form>
         </div>

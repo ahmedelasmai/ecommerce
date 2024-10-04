@@ -1,5 +1,5 @@
 from django import forms
-from .models import Products
+from .models import Products, Stock
 from django.forms import ModelForm
 
 SIZE_CHOICE = [
@@ -12,8 +12,12 @@ class ProductForm(forms.Form):
     size = forms.ChoiceField(choices=SIZE_CHOICE,label='')
     quantity = forms.IntegerField(label='',initial=1)
 
-class UploadModelForm(ModelForm):
+class ProductModelForm(ModelForm):
     class Meta:
         model = Products
         fields = ['name','price','description','category','image']
 
+class StockModelForm(ModelForm):
+    class Meta:
+        model = Stock  
+        fields = ['small', 'medium', 'large']
