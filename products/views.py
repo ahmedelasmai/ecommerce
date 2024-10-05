@@ -52,7 +52,7 @@ def product(request,pk):
                 if quantity > stock:
                     form.add_error(None, f"Not enough in stock. There is only {stock} in stock")
                 else:
-                    new_value = stock - int(quantity)                                               #data type error ?
+                    new_value = stock - quantity                                            #data type error ?
                     setattr(stock_object,size,new_value)
                     stock_object.save()
 
