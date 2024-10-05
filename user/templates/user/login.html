@@ -1,19 +1,46 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>log in</title>
+  <!-- font-awesome cdn link -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+  <!-- custom css file link -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+  <section id="header">
+    <a href="{% url 'products' %}"><img src="{% static 'images/logo.png' %}" class="logo" alt=""></a>
+    <div>
+        <ul id="navbar">
+            <li><a href="{% url 'products' %}">Shop</a></li>
+            <li><a href="/cart/">cart</a></li>
+            <li><a class="active" href="/upload/">upload</a></li>
+            <li><a>Contact</a></li>
+            <a href="#" id="close"><i class="far fa-times"></i></a>
+        </ul>
+    </div>
+    <div id="mobile">
+        <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+    </div>
+  </section>
+<section id="#productdetails" class="section-p1">
+  <div class="single-pro-details">
 
-<h2>Login</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-</form>
-    
-
+    <h2>Login</h2>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="normal2">Login</button>
+    </form>
+    <br>
+    <a href="/user/register"> sign up </a>
+  </div>
+</section>
 </body>
 </html>
