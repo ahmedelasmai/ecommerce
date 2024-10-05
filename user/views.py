@@ -7,7 +7,7 @@ def register(request):
     if request.user.is_authenticated:
         return redirect('/products/')
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserCreationForm()
         if form.is_valid():
             user = form.save()
             messages.success(request, 'new user created')
