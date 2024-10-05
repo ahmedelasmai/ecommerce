@@ -13,19 +13,23 @@ class products(ListView):
     template_name = 'products/products.html'
 
 @login_required
-def upload(request):
-    product_form = ProductModelForm(request.POST or None,request.FILES,prefix='product')
-    stock_form = StockModelForm(request.POST or None,prefix='stock')
-    
-    if product_form.is_valid() and stock_form.is_valid():
-        product = product_form.save(commit=False)
-        product.user = request.user
-        product.save()
-        stock = stock_form.save(commit=False)
-        stock.product = product
-        stock.save()
-        return redirect('products')
-   
+def upload(request): 
+    if request.method == 'POST':
+        product_form = ProductModelForm(request.FILES)
+        stock_form = StockModelForm()
+        
+        if product_form.is_valid() and stock_form.is_valid():
+            product = product_form.save(commit=False)
+            product.user = request.user
+            product.save()
+            stock = stock_form.save(commit=False)
+            stock.product = product
+            stock.save()
+            return redirect('products')
+    else:
+        product_form = ProductModelForm()
+        stock_form = StockModelForm()
+
     context = {
         'product_form': product_form,  
         'stock_form': stock_form,
