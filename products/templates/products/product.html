@@ -52,15 +52,15 @@
                     <br>
                     <button type='submit' class="normal">Add to Cart</button>
                 </form>
-                {% if messages %}
-                    <div id="message-container">
-                        {% for message in messages %}
-                        <div class="alert {{ message.tags }}">
-                            {{ message }}
+                    {% if messages %}
+                        <div id="message-containe">
+                            {% for message in messages %}
+                            <div class="box-alert">
+                                <li> {{ message }} </li>
+                            </div>
+                            {% endfor %}
                         </div>
-                        {% endfor %}
-                    </div>
-                {% endif %}
+                    {% endif %}
             {% endif %}
             <h4>Product Details</h4>
             <span>{{ product.description }}</span>

@@ -7,6 +7,10 @@
     font-family: 'Spartan',sans-serif;
 }
 
+.box-alert {
+    padding-top: 40px;
+}
+
 .normal2 {
     font-size: 14px;
     font-weight: 600;
