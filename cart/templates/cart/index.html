@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-commerce website</title>
+    <script src="{% static 'js/script.js' %}" defer></script>
 
     <!-- font-awesome cdn link -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
@@ -30,14 +31,17 @@
             </ul>
         </div>
         <div id="mobile">
-            <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
             <i id="bar" class="fas fa-outdent"></i>
         </div>
     </section>
+    
     {% if cart.items|length == 0 %}
+    <section id="cart" class="section-p1">
     <h2 class="cart-empty">no items in cart</h2>
+    </section>
     {% else %}
     <section id="cart" class="section-p1">
+        
         <table width="100%">
             <thead>
                 <tr>
@@ -122,7 +126,6 @@
             <p>Created By Ahmed El Asmai | All Rights Reserved | &#169; 2024</p>
         </div>
     </footer>
-
     
 </body>
 
