@@ -121,9 +121,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-# STATICFILES_DIRS = [
-#     BASE_DIR / 'static',  
-# ]
+STATIC_URL = '/static/'
+STATIC_ROOT = '/home/ahmedelasmai/ahmedelasmai.eu.pythonanywhere.com/staticfiles'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
 LOGIN_REDIRECT_URL = '/products'
 LOGIN_URL = '/user/login'
@@ -140,9 +142,3 @@ if 'DATABASE_URL' in os.environ:
         conn_max_age=500,
         conn_health_checks=True,
     )
-
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-STATIC_ROOT = '/home/ahmedelasmai/ahmedelasmai.eu.pythonanywhere.com/staticf'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
