@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-euj+yr-b+425m3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['ahmedelasmai.eu.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['ahmedelasmai.eu.pythonanywhere.com']
 CSRF_TRUSTED_ORIGINS = ['https://ahmedelasmai.eu.pythonanywhere.com']
 
 # Application definition
@@ -124,7 +124,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/ahmedelasmai/ahmedelasmai.eu.pythonanywhere.com/staticfiles'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / 'ecom/static',
 ]
 
 LOGIN_REDIRECT_URL = '/products'
@@ -142,3 +142,4 @@ if 'DATABASE_URL' in os.environ:
         conn_max_age=500,
         conn_health_checks=True,
     )
+
