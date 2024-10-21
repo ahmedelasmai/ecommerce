@@ -141,7 +141,8 @@ if 'DATABASE_URL' in os.environ:
         conn_health_checks=True,
     )
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+STATIC_ROOT = '/home/ahmedelasmai/ahmedelasmai.eu.pythonanywhere.com/staticf'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
