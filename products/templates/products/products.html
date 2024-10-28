@@ -46,7 +46,7 @@
         <div class="pro-container">
             {% for product in page_obj %}
             <div class="pro" onclick="window.location.href='{% url 'product' product.id %}';">
-                <img src="{% static product.image.url|slice:"7:" %}" alt="">
+                <img src="{{ product.image.url }}" alt="">
                 <div class="des">
                     <span>{{ product.category }}</span>
                     <h5>{{ product.name }}</h5>

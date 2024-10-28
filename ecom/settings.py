@@ -124,8 +124,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/ahmedelasmai/ahmedelasmai.eu.pythonanywhere.com/staticfiles'
 STATICFILES_DIRS = [
-    BASE_DIR / 'ecom/static',
+    BASE_DIR / 'ecom/static',  
 ]
+
+
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = '/products'
 LOGIN_URL = '/user/login'

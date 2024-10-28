@@ -14,8 +14,8 @@ class products(ListView):
 @login_required
 def upload(request): 
     if request.method == 'POST':
-        product_form = ProductModelForm(request.FILES)
-        stock_form = StockModelForm()
+        product_form = ProductModelForm(request.POST,request.FILES)
+        stock_form = StockModelForm(request.POST)
         
         if product_form.is_valid() and stock_form.is_valid():
             product = product_form.save(commit=False)
