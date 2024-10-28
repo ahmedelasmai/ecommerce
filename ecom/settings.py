@@ -128,7 +128,7 @@ STATICFILES_DIRS = [
 ]
 
 
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / '/home/ahmedelasmai/ahmedelasmai.eu.pythonanywhere.com/mediafiles'
 MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = '/products'
