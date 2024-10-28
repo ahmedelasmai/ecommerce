@@ -1,10 +1,17 @@
 from django.db import models
 from django.conf import settings
+
+import os
+from datetime import datetime
+
 User = settings.AUTH_USER_MODEL
     
 def image_upload_to(instance, filename):
     ext = filename.split('.')[-1]
-    return f'static/images/products/{instance.pk}.{ext}'
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')  # Format: YYYYMMDD_HHMMSS
+    filename = f'{timestamp}.{ext}'
+
+    return os.path.join('images', filename)
 
 class Products(models.Model):
     name = models.CharField(max_length=255)
@@ -33,14 +40,6 @@ class Products(models.Model):
     def __str__(self):
         return self.name
     
-    def save(self, *args, **kwargs):
-        # Save the object first to generate the primary key if it's not set 
-        image = self.image
-        self.image = None
-        super().save(*args, **kwargs)
-        # Call save again to ensure the image is saved with the primary key as name
-        self.image = image
-        super(Products, self).save(*args, **kwargs)
 
 class Stock(models.Model):
     product = models.ForeignKey(Products,on_delete=models.CASCADE)
