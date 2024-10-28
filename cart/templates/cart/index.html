@@ -57,7 +57,7 @@
                 {% for item_id, item in cart.items %}
                 <tr>
                     <td><a href="{% url 'remove_cart_item' item_id %}"><i class="fas fa-times-circle" style="color:black"></i></a></td>
-                    <td><img src="{% static item.image_location|slice:"7:" %}" alt=""></td>
+                    <td><img src="{{ item.image_location }}" alt=""></td>
                     <td>{{ item.name }}</td>
                     <td>{{ item.size}}</td>
                     <td>{{ item.quantity}}</td>

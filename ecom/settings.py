@@ -122,8 +122,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',  
+    BASE_DIR / 'ecom/static',  
 ]
+
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+
 LOGIN_REDIRECT_URL = '/products'
 LOGIN_URL = '/user/login'
 LOGOUT_REDIRECT_URL = '/user/login'
