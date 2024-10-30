@@ -2,4 +2,4 @@
 
 ## Branches explained
 - main is for development
-- verison-1 is for production
+- production is for production
