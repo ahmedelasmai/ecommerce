@@ -12,6 +12,7 @@ ecommerce website built using django
   - [Repo Structure](#repo-structure)
   - [Requirements](#requirements)
   - [Installation](#installation)
+- [Documentation](#documentation)
 - [How to test](#white_check_mark-how-to-test)
 - [Contribute](#contribute)
 - [Bugs and Issues](#bugs-and-issues)
@@ -47,6 +48,10 @@ install the package:
 ```bash
 
 ```
+
+# Documentation
+
+[Read more](./docs/)
 
 # How To Test
 
