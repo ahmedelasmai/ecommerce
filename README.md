@@ -33,7 +33,7 @@ todo
     └── 
         └── 
         
-:warning: use production branch to deploy to production
+:warning: use production branch to deploy in production enviroment
 
 ## Requirements
 
