@@ -49,9 +49,6 @@ To install the packages in your project, follow these steps:
    1. 
    ```bash
    python -m venv venv
-   ```
-   2. 
-   ```bash
    venv\Scripts\activate
    ```
 2. **Clone the repo. You can choose between the development branch or the production-ready one:**
@@ -59,6 +56,7 @@ To install the packages in your project, follow these steps:
    ```bash
    git clone --single-branch -b main https://github.com/jacketoff/ecommerce
    ```
+   OR
    ```bash
    git clone --single-branch -b production https://github.com/jacketoff/ecommerce
    ```
