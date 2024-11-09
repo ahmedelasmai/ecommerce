@@ -12,6 +12,7 @@ ecommerce website built using django
   - [Repo Structure](#repo-structure)
   - [Requirements](#requirements)
   - [Installation](#installation)
+  - [running the project](#running-the-project)
 - [Documentation](#documentation)
 - [How to test](#white_check_mark-how-to-test)
 - [Contribute](#contribute)
@@ -29,25 +30,64 @@ todo
 
 ## Project Structure
 
-    .
-    └── 
-        └── 
-        
+The vanilla Django project structure is used.
+
 :warning: use production branch to deploy in production enviroment
 
 ## Requirements
 
-1. todo
+- python 3.9 or higher
+- sqlite 
+- Git
+- virtualenv (recommended)
 
 ## Installation
 
 To install the packages in your project follow these steps:
 
-install the package:
+1. (recommended) create a virtual enviroment using virtual enviroment (The example is on windows. mac is only slightly different) 
+  1. ```bash
+   python -m venv venv
+   ```
+  2. ```bash
+     venv\Scripts\activate
+     ```
+2. **clone the repo. You can choose between the development branch or production ready one** 
 
 ```bash
+   git clone --single-branch -b main https://github.com/jacketoff/ecommerce
+   ```
+```bash
+   git clone --single-branch -b production https://github.com/jacketoff/ecommerce
+   ```
 
+```bash
+cd ecommerce
 ```
+3. **install requirements.txt**
+```bash
+pip install -r requirements.txt
+```
+
+4. **set up the database**
+```bash
+    cd ecom
+     python manage.py migrate
+     ```
+5. **Create a Superuser (Optional)**
+   - If you need access to the Django admin panel, create a superuser:
+     ```bash
+     python manage.py createsuperuser
+     ```
+
+6. **run on local server**
+```bash
+python manage.py runserver
+```
+
+7. **Access the Application**
+   - Open your web browser and go to `http://127.0.0.1:8000/` to view your application.
+   - If you created a superuser, you can access the admin panel at `http://127.0.0.1:8000/admin/`.
 
 # Documentation
 
