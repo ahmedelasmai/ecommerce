@@ -28,7 +28,7 @@ tl;dr
 
 I prefer opinionated frameworks because they make learning backend development easier, I'm still learning so without having a structure I can rely on i might miss imporant best practices and details (this happened to me with flask) and if I do overlook a detail there might be an problem somwhere and im forced to learn said detail. It also makes it easy to follow best practices. I also prefer having common features like ORM and authentication already included, so I can focus on building the application. Also it makes it easier for me to work on other projects that also use these features. Django enforce best practices, which is very important.
 
-- Experss.js: I didn't chose this because its not fully featured and Django's ORM is far more mature and has a bigger community.
+- Experss.js: I didn't chose this because Its lighweight and Django's ORM is far more mature compared to prisma.
 
 - Flask: similar to Express I prefer Django's Opinionated approach for this project
 
