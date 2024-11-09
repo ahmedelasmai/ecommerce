@@ -30,6 +30,7 @@ todo
 ## Project Structure
 
 The vanilla Django project structure is used.
+
 :warning: use production branch to deploy in production enviroment
 
 ## Requirements
