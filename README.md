@@ -22,7 +22,8 @@ Ecommerce website built using Django.
 
 # Introduction
 
-_TODO_
+### Why I Chose Django
+I prefer opinionated frameworks because they make learning best practices easier, instead of just banging my head against a wall until it works. It also makes it easy to follow best practices. I also prefer having common features like ORM and authentication already included, which lets me focus on building the application. Also it makes it easier for me to work on other projects that also use these features. These frameworks enforce best practices, which is very important.
 
 ## Goals
 
