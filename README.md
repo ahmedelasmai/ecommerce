@@ -23,7 +23,20 @@ Ecommerce website built using Django.
 # Introduction
 
 ### Why I Chose Django
-I prefer opinionated frameworks because they make learning best practices easier, instead of just banging my head against a wall until it works. It also makes it easy to follow best practices. I also prefer having common features like ORM and authentication already included, which lets me focus on building the application. Also it makes it easier for me to work on other projects that also use these features. These frameworks enforce best practices, which is very important.
+
+tl;dr
+
+I prefer opinionated frameworks because they make learning backend development easier, I'm still learning so without having a structure I can rely on i might miss imporant best practices and details (this happened to me with flask) and if I do overlook a detail there might be an problem somwhere and im forced to learn said detail. It also makes it easy to follow best practices. I also prefer having common features like ORM and authentication already included, so I can focus on building the application. Also it makes it easier for me to work on other projects that also use these features. Django enforce best practices, which is very important.
+
+- Experss.js: I didn't chose this because its not fully featured and Django's ORM is far more mature and has a bigger community.
+
+- Flask: similar to Express I prefer Django's Opinionated approach for this project
+
+- Ruby on rails: I didn't choose ruby because from what I researched its not being used as much these days.
+
+- ASP.NET: I was seriously considering this framework as it has very good preformance and scalability, used alot in enterprise and its backed by microsoft
+
+- spring: similar to ASP.NET
 
 ## Goals
 
