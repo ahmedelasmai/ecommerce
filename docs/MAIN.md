@@ -30,4 +30,4 @@ I used the default Django project structure as I felt django cookiecutter had to
 
 ## misc
 
-- static and media files are stored in /econ/ I didn't put much thought into where they are stored for development because in production they are servered through the web server.
+- static and media files are stored in /econ/ I didn't put much thought into where they are stored for development because in production they are served through the web server.
