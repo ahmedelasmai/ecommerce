@@ -8,12 +8,12 @@ SIZE_CHOICE = [
     ('large','large')
 ]
 
-#this form is for single product page (when choosing weather to add product to cart)
+#this form is for single product page (adding product to cart)
 class ProductForm(forms.Form):
     size = forms.ChoiceField(choices=SIZE_CHOICE,label='')
     quantity = forms.IntegerField(label='',initial=1)
 
-#form for uploading products
+#forms for uploading products (and stock)
 class ProductModelForm(ModelForm):
     class Meta:
         model = Products

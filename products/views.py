@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Products, Stock
 from .forms import ProductForm, ProductModelForm, StockModelForm
 
+#lists products (multiple) 
 class products(ListView):
     paginate_by = 20
     model = Products
@@ -35,9 +36,10 @@ def upload(request):
     }
     return render(request,'products/upload.html',context=context)
 
-
+#single product 
 def product(request,pk):
     product = get_object_or_404(Products, pk=pk)
+    #adding product to cart
     if request.method == 'POST':
         form = ProductForm(request.POST)
         if form.is_valid():
@@ -46,14 +48,15 @@ def product(request,pk):
             with transaction.atomic():
                 stock_object = Stock.objects.select_for_update().get(product=pk)
                 stock = getattr(stock_object, size)
-
+                #update amount in stock when product added to cart
                 if quantity > stock:
                     form.add_error(None, f"Not enough in stock. There is only {stock} in stock")
                 else:
                     new_value = stock - quantity
                     setattr(stock_object, size, new_value)
                     stock_object.save()
-
+                    
+                    #create/add to cart (session)
                     cart = request.session.get('cart', {})
                     product_id = str(product.id)
 
