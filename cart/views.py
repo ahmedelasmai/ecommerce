@@ -18,8 +18,10 @@ def remove_cart_item(request,id=id):
     if id in cart:
         with transaction.atomic():
             stock = Stock.objects.select_for_update().get(product=int(id))
+            
             current_quantity = getattr(stock, cart[id]['size'], 0)
             updated_quantity = current_quantity + cart[id]['quantity']
+
             setattr(stock,cart[id]['size'],updated_quantity)
             stock.save()
 
