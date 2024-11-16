@@ -46,8 +46,6 @@ I prefer opinionated frameworks because they make learning backend development e
 
 The vanilla Django project structure is used.
 
-> :warning: Use the production branch to deploy in a production environment.
-
 ## Requirements
 
 - Python 3.9 or higher
@@ -65,16 +63,11 @@ To install the packages in your project, follow these steps:
    python -m venv venv
    venv\Scripts\activate
    ```
-2. **Clone the repo. You can choose between the development branch or the production-ready one:**
+2. **Clone the repo:**
 
    ```bash
    git clone --single-branch -b main https://github.com/jacketoff/ecommerce
    ```
-   OR
-   ```bash
-   git clone --single-branch -b production https://github.com/jacketoff/ecommerce
-   ```
-
    ```bash
    cd ecommerce
    ```
