@@ -8,7 +8,6 @@ Ecommerce website built using Django.
 
 - [Ecommerce](#my-ecommerce-website)
 - [Introduction](#introduction)
-  - [Goals](#goals)
   - [Repo Structure](#repo-structure)
   - [Requirements](#requirements)
   - [Installation](#installation)
@@ -37,10 +36,6 @@ I prefer opinionated frameworks because they make learning backend development e
 - ASP.NET: I was seriously considering this framework as it has very good preformance and scalability, used alot in enterprise and its backed by microsoft
 
 - spring: similar to ASP.NET
-
-## Goals
-
-- _TODO_
 
 ## Project Structure
 
