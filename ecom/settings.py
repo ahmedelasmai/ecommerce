@@ -12,6 +12,7 @@ load_dotenv(env_path)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-euj+yr-b+425m3te#y34-mj*4l6%va^i9#2krzjr3o1aljjvg&')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-euj+yr-b+425m3te#y34-mj*4l6%va^i9#2krzjr3o1aljjvg&')
 
 # Determine if the environment is production, development, or testing
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
@@ -133,3 +134,12 @@ LOGOUT_REDIRECT_URL = '/user/login'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import dj_database_url
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES['default'] = dj_database_url.config(
+        conn_max_age=500,
+        conn_health_checks=True,
+    )
+

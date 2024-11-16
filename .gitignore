@@ -3,7 +3,6 @@ products/__pycache__/views.cpython-311.pyc
 user/__pycache__/views.cpython-311.pyc
 static/images/button.png
 static/images/hero4.png
-static/images/logo.png
 static/images/about/1.mp4
 static/images/about/a1.png
 static/images/about/a2.jpg
@@ -64,7 +63,6 @@ static/images/products/n8.jpg
 products/static/products/css/style.css
 products/static/products/images/button.png
 products/static/products/images/hero4.png
-products/static/products/images/logo.png
 products/static/products/images/about/1.mp4
 products/static/products/images/about/a1.png
 products/static/products/images/about/a2.jpg
@@ -327,3 +325,4 @@ static/images/products/vintage shoe.jpg
 static/images/products/women troursers plants dark.jpg
 static/images/products/women trousers plants.jpg
 static/products/images/products/f1.jpg
+.gitignore

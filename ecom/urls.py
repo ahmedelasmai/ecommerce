@@ -26,7 +26,3 @@ urlpatterns = [
     path('user/',include('user.urls')),
     path('cart/',include('cart.urls')),
 ]
-
-#media files while in development
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
