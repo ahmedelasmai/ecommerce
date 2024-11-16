@@ -49,7 +49,7 @@ def product(request,pk):
                 stock_object = Stock.objects.select_for_update().get(product=pk)
                 stock = getattr(stock_object, size)
                 #update amount in stock when product added to cart
-                if quantity > stock:
+                if quantity >= stock:
                     form.add_error(None, f"Not enough in stock. There is only {stock} in stock")
                 else:
                     new_value = stock - quantity
