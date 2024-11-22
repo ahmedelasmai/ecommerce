@@ -1,6 +1,6 @@
-# My Ecommerce Website
+# pythonanywhere branch
 
-Ecommerce website built using Django.
+this is the branch I use to deploy to pythonanywhere.com
 
 [Website](https://ahmedelasmai.eu.pythonanywhere.com/products/)
 
