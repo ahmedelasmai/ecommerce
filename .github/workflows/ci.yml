@@ -3,51 +3,39 @@ name: Django CI
 on:
   push:
     branches:
-      - main  
+      - main
   pull_request:
     branches:
-      - main  
+      - main
 
 jobs:
-  lint-and-test:
-    runs-on: ubuntu-latest  
+  test:
+    runs-on: ubuntu-latest
 
     steps:
-    # Checkout the code
     - name: Checkout code
-      uses: actions/checkout@v3  # Updated to the latest stable version
+      uses: actions/checkout@v4
 
-    # Set up Python 3.10
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v4  # Updated to version 4
+    - name: Set up Python
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.10'  # Ensure Python 3.10 is used
+        python-version: 3.9
 
-    # Install dependencies
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install flake8 black  # Install Flake8 and Black
+        pip install flake8 black django sqlite3
 
-    # Run Black for code formatting
-    - name: Run Black (code formatting)
-      run: |
-        black --check .  # Check if Black is properly formatting the code
+    - name: Run migrations
+      run: python manage.py migrate
 
-    # Run Flake8 for linting
-    - name: Run Flake8 (linting)
-      run: |
-        flake8 .  # Lint the codebase
+    - name: Run tests
+      run: python manage.py test
 
-    # Set up SQLite3 database and run Django tests
-    - name: Set up SQLite3 database and run Django tests
+    - name: Lint with Flake8
       run: |
-        python manage.py migrate  # Migrate the SQLite3 database
-        python manage.py test  # Run the tests
+        flake8 .
 
-    # Display the test results
-    - name: Collect test results
-      if: success()
+    - name: Format check with Black
       run: |
-        echo "All tests passed"
+        black --check .
