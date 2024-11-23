@@ -15,13 +15,13 @@ jobs:
     steps:
     # Checkout the code
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3  # Updated to the latest stable version
 
     # Set up Python 3.10
     - name: Set up Python 3.10
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4  # Updated to version 4
       with:
-        python-version: 3.10  # Ensure Python 3.10 is used
+        python-version: '3.10'  # Ensure Python 3.10 is used
 
     # Install dependencies
     - name: Install dependencies
@@ -46,7 +46,7 @@ jobs:
         python manage.py migrate  # Migrate the SQLite3 database
         python manage.py test  # Run the tests
 
-    # display the test results
+    # Display the test results
     - name: Collect test results
       if: success()
       run: |
