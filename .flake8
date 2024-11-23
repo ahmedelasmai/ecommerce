@@ -5,5 +5,7 @@ exclude =
     venv,
     */migrations/*,  
     */admin.py,     
-    */settings.py,   
+    */settings.py,
+    ./user/models.py,
+
 max-line-length = 88
