@@ -3,24 +3,25 @@ from .models import Products, Stock
 from django.forms import ModelForm
 from django.core.validators import MinValueValidator
 
-SIZE_CHOICE = [
-    ('small','small'),
-    ('medium','medium'),
-    ('large','large')
-]
+SIZE_CHOICE = [("small", "small"), ("medium", "medium"), ("large", "large")]
 
-#this form is for single product page (adding product to cart)
+
+# this form is for single product page (adding product to cart)
 class ProductForm(forms.Form):
-    size = forms.ChoiceField(choices=SIZE_CHOICE,label='')
-    quantity = forms.IntegerField(label='',initial=1,validators=[MinValueValidator(0)])
+    size = forms.ChoiceField(choices=SIZE_CHOICE, label="")
+    quantity = forms.IntegerField(
+        label="", initial=1, validators=[MinValueValidator(0)]
+    )
 
-#forms for uploading products (and stock)
+
+# forms for uploading products (and stock)
 class ProductModelForm(ModelForm):
     class Meta:
         model = Products
-        fields = ['name','price','description','category','image']
+        fields = ["name", "price", "description", "category", "image"]
+
 
 class StockModelForm(ModelForm):
     class Meta:
-        model = Stock  
-        fields = ['small', 'medium', 'large']
+        model = Stock
+        fields = ["small", "medium", "large"]

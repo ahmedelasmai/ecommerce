@@ -1,6 +1,6 @@
-'''
+"""
 I dont know why but sessions created here are not passed into the view therefore I cannot test for cart
-'''
+"""
 
 # from django.test import TestCase
 # from django.urls import reverse
@@ -24,7 +24,7 @@ I dont know why but sessions created here are not passed into the view therefore
 #         #check if cart session is passed into index view
 #         print(response.context['cart'])
 
-#         self.assertEqual(response.context['overall_price'], '25.00')  
+#         self.assertEqual(response.context['overall_price'], '25.00')
 
 
 #     def test_empty_cart_message(self):
