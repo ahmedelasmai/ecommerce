@@ -39,8 +39,8 @@ class CartTests(TestCase):
 
         # check if cart session is passed into index view
         print(response.context["cart"])
-
         # self.assertEqual(response.context["overall_price"], "25.00")
+        
 
     def test_empty_cart_message(self):
         self.client.session["cart"] = {}
