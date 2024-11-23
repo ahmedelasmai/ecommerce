@@ -1,5 +1,5 @@
 name: Django CI
-# github actions
+
 on:
   push:
     branches:
