@@ -152,3 +152,6 @@ if "DATABASE_URL" in os.environ:
         conn_max_age=500,
         conn_health_checks=True,
     )
+
+SESSION_COOKIE_AGE = 1209600  # 2 weeks
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
