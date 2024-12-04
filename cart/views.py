@@ -10,10 +10,11 @@ def index(request):
     overall_price = 0.00
     for product in cart.values():
         overall_price += float(product["price"])
+        overall_price = format(overall_price, ".2f")
     return render(
         request,
         "cart/index.html",
-        {"cart": cart, "overall_price": format(overall_price, ".2f")},
+        {"cart": cart, "overall_price": overall_price},
     )
 
 
