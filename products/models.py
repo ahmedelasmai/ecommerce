@@ -9,7 +9,8 @@ User = settings.AUTH_USER_MODEL
 
 def image_upload_to(instance, filename):
     ext = filename.split(".")[-1]
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")  # Format: YYYYMMDD_HHMMSS
+    # Format: YYYYMMDD_HHMMSS
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = f"{timestamp}.{ext}"
 
     return os.path.join("images", filename)
