@@ -73,7 +73,7 @@ def product(request, pk):
                     else:
                         cart[product_id] = {
                             "name": product.name,
-                            "price": f"{product.price * quantity:.2f}",
+                            "price": f"{product.price:.2f}",
                             "quantity": quantity,
                             "size": size,
                             "image_location": str(product.image.url),
