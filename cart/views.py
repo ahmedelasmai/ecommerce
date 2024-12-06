@@ -1,61 +1,67 @@
 from django.shortcuts import render, redirect
 from django.db import transaction
 from django.conf import settings
-from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 
 from products.models import Stock
 
 import stripe
-import os
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
+
 
 @login_required
 def stripe_checkout(request):
     line_items = []
     cart = request.session.get("cart", {})
     for product_id, product in cart.items():
-        price = float(product['price']) # stripe uses integer for price. (product.price) is a string with decimal
-        price = int(price*100)
-        line_items.append({
-                    'price_data': {
-                        'currency': 'gbp',
-                        'product_data': {
-                            'name': product['name'],   
-                        },
-                        'unit_amount': price,
+        price = float(
+            product["price"]
+        )  # stripe uses integer for price. (product.price) is a string with decimal
+        price = int(price * 100)
+        line_items.append(
+            {
+                "price_data": {
+                    "currency": "gbp",
+                    "product_data": {
+                        "name": product["name"],
                     },
-                    'quantity': product['quantity'],
-                })
+                    "unit_amount": price,
+                },
+                "quantity": product["quantity"],
+            }
+        )
     try:
         # Create a Stripe Checkout Session with multiple line items
         session = stripe.checkout.Session.create(
-            payment_method_types=['card'],
+            payment_method_types=["card"],
             line_items=line_items,
-            mode='payment',
-            success_url='http://127.0.0.1:8000/cart/success/',
-            cancel_url='http://127.0.0.1:8000/cart/cancel/',
+            mode="payment",
+            success_url="http://127.0.0.1:8000/cart/success/",
+            cancel_url="http://127.0.0.1:8000/cart/cancel/",
         )
-        return redirect(session.url) 
-    
+        return redirect(session.url)
+
     except Exception as e:
         print(f"Error: {str(e)}")
+
 
 @login_required
 def success(request):
     return render(request, "cart/success.html")
 
+
 @login_required
 def cancel(request):
     return render(request, "cart/cancel.html")
+
 
 @login_required
 def index(request):
     cart = request.session.get("cart", {})
     overall_price = 0.00
     for product in cart.values():
-        product_price = float(product['price']) * product['quantity']
+        product_price = float(product["price"]) * product["quantity"]
         overall_price += product_price
     overall_price = format(overall_price, ".2f")
     return render(
