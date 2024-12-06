@@ -16,6 +16,8 @@ Model for how much stock each product has. Each product has 3 sizes per stock: b
 
 The cart app uses Django sessions (database backed) to get cart contents. I didn't use cookies because they get sent through every request which can slow response time while sessions only get sent when requested and the cart info doesn't have to be sent on every request.
 
+session structure (dictionary): {product_id { name, price, quantity, size, image_location}}
+
 ## products app
 
 This main part of the project. The main page is displayed here it contains the main models: products and stock. The views are: upload view, (single) product view and products view   
