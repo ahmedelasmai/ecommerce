@@ -1,5 +1,12 @@
 # main section of the documentation
 
+# todo: add contents ❗
+
+## architecture
+
+I used the default Django project structure 
+
+![system design]("system design.svg")
 
 ## models
 
@@ -25,10 +32,6 @@ This main part of the project. The main page is displayed here it contains the m
 ## User app / authentication
 
 I used the Django authentication framework as its secure, follows best practices and intergrates seemlessly. Also it allowed me to focus more on developing the app. 
-
-## architecture
-
-I used the default Django project structure as I felt django cookiecutter had too many features that I didn't need 
 
 ## misc
 
