@@ -6,7 +6,7 @@
 
 I used the default Django project structure 
 
-![system design](system design.svg)
+![System Design](system%20design.svg)
 
 ## models
 
