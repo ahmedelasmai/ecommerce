@@ -21,7 +21,7 @@ Model for how much stock each product has. Each product has 3 sizes per stock: b
 
 ## econ app
 
-This app is the starting app that: has the settings.py and wsgi.py file and is the central point for routing incoming requests.
+This app is the starting app that has the settings.py and wsgi.py file and is the central point for routing incoming requests.
 
 ## cart app
 
