@@ -14,10 +14,6 @@ Ecommerce website built using Django.
   - [Running the Project](#running-the-project)
 - [Documentation](#documentation)
 - [How to Test](#how-to-test)
-- [Contribute](#contribute)
-- [Bugs and Issues](#bugs-and-issues)
-- [License](#license)
-- [Code of Conduct](#code-of-conduct)
 
 # Introduction
 
@@ -93,24 +89,8 @@ To install the packages in your project, follow these steps:
 
 # Documentation
 
-[Read more](./docs/)
+[Read more](./docs/MAIN_DOCS.md)
 
 # How to Test
 
 [Read more](./docs/TESTING.md)
-
-# Contribute
-
-[Read more](./docs/CONTRIBUTE.md)
-
-# Bugs and Issues
-
-If you would like to open an issue, you can gladly use [this page](https://github.com/jacketoff/ecommerce/issues). But please, have a look at the [Contribute](./docs/CONTRIBUTE.md) page before filing a bug.
-
-# License
-
-[GPL-3.0 LICENSE](./LICENSE.md)
-
-# Code of Conduct
-
-You can find the [Code of Conduct here](./docs/CODE_OF_CONDUCT.md)
