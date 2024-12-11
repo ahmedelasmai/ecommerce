@@ -14,10 +14,6 @@ this is the branch I use to deploy to pythonanywhere.com
   - [Running the Project](#running-the-project)
 - [Documentation](#documentation)
 - [How to Test](#how-to-test)
-- [Contribute](#contribute)
-- [Bugs and Issues](#bugs-and-issues)
-- [License](#license)
-- [Code of Conduct](#code-of-conduct)
 
 # Introduction
 
@@ -91,26 +87,19 @@ To install the packages in your project, follow these steps:
    - Open your web browser and go to `http://127.0.0.1:8000/` to view your application.
    - If you created a superuser, you can access the admin panel at `http://127.0.0.1:8000/admin/`.
 
+(optional) 8. **stripe checkout**
+   - sign up for stripe and copy the public and private keys.
+   - go to root project directory (the directory with manage.py) and create a .env file
+   - paste you keys: 
+   ```
+   STRIPE_PUBLIC_KEY=your_public_key
+   STRIPE_SECRET_KEY=your_secret_key
+   ```
+   
 # Documentation
 
-[Read more](./docs/)
+[Read more](./docs/MAIN_DOCS.md)
 
 # How to Test
 
 [Read more](./docs/TESTING.md)
-
-# Contribute
-
-[Read more](./docs/CONTRIBUTE.md)
-
-# Bugs and Issues
-
-If you would like to open an issue, you can gladly use [this page](https://github.com/jacketoff/ecommerce/issues). But please, have a look at the [Contribute](./docs/CONTRIBUTE.md) page before filing a bug.
-
-# License
-
-[GPL-3.0 LICENSE](./LICENSE.md)
-
-# Code of Conduct
-
-You can find the [Code of Conduct here](./docs/CODE_OF_CONDUCT.md)
