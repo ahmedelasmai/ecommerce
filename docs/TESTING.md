@@ -1,27 +1,17 @@
 # Testing
 
-This chapter provides the user with all needed information around testing within this project.
-
-## Content <!-- omit in toc -->
-
-- [Testing](#testing)
-  - [Tooling](#tooling)
-    - [todo: name of test](#)
-  - [How to write tests](#how-to-write-tests)
-  - [How to run tests](#how-to-run-tests)
-
-## Tooling
-
-### todo: name of tool
-
-## How to write tests
-
-We don't use any specific testing strategy.
+(work in progress)
 
 ## How to run tests
 
 Local Setup:
 
-```
+1. **ensure you are in same directory as manage.py**:
+   ```bash
+   ls
+   ```
 
-```
+2. **Run the tests using Django's test command**:
+   ```bash
+   python manage.py test
+   ```
