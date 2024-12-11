@@ -44,9 +44,6 @@
             <h6>product / {{ product.category }}</h6>
             <h4> {{ product.name }} </h4>
             <h2> £{{product.price}} </h2>
-            <h2>&nbsp;</h2>
-            <h2><i><a href="{% url 'login' %}">login</a> to purchase this product</i></h2>
-            <h2>&nbsp;</h2>
             {% if user.is_authenticated %}
                 <form action='{% url 'product' product.pk %}' method='POST'>
                     {% csrf_token %}
@@ -63,6 +60,10 @@
                             {% endfor %}
                         </div>
                     {% endif %}
+            {% else %}
+            <h2>&nbsp;</h2>
+            <h2><i><a href="{% url 'login' %}">login</a> to purchase this product</i></h2>
+            <h2>&nbsp;</h2>
             {% endif %}
             <h4>Product Details</h4>
             <span>{{ product.description }}</span>
