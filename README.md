@@ -87,6 +87,15 @@ To install the packages in your project, follow these steps:
    - Open your web browser and go to `http://127.0.0.1:8000/` to view your application.
    - If you created a superuser, you can access the admin panel at `http://127.0.0.1:8000/admin/`.
 
+(optional) 8. **stripe checkout**
+   - sign up for stripe and copy the public and private keys.
+   - go to root project directory (the directory with manage.py) and create a .env file
+   - paste you keys: 
+   ```
+   STRIPE_PUBLIC_KEY=your_public_key
+   STRIPE_SECRET_KEY=your_secret_key
+   ```
+   
 # Documentation
 
 [Read more](./docs/MAIN_DOCS.md)
