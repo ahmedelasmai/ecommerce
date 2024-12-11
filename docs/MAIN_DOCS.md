@@ -39,5 +39,6 @@ I used the Django authentication framework as its secure, follows best practices
 
 ## misc
 
-- static and media files are stored in /econ/ I didn't put much thought into where they are stored for development because in production they are served through the web server.
+- Static and media files are stored in /econ/ I didn't put much thought into where they are stored for development because in production they are served through the web server.
+- If you installed requirements.txt with a virtual enviroment active. Your virtual enviroment must be active when running or testing the app because of stripe. 
 
