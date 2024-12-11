@@ -156,6 +156,6 @@ if "DATABASE_URL" in os.environ:
 SESSION_COOKIE_AGE = 1209600  # 2 weeks
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
-BASE_URL = os.environ.get("BASE_URL","http://127.0.0.1:8000")
+BASE_URL = os.environ.get("BASE_URL", "http://127.0.0.1:8000")
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
 STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY")

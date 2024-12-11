@@ -10,6 +10,7 @@ import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 base_url = settings.BASE_URL
 
+
 @login_required
 def stripe_checkout(request):
     line_items = []
