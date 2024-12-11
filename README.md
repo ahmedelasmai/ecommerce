@@ -79,11 +79,12 @@ To install the packages in your project, follow these steps:
    ```
 
 6. **Run on local server:**
+   ⚠️(the virutal enviroment must be active when starting the server)
    ```bash
    python manage.py runserver
    ```
 
-7. **Access the Application:**
+8. **Access the Application:**
    - Open your web browser and go to `http://127.0.0.1:8000/` to view your application.
    - If you created a superuser, you can access the admin panel at `http://127.0.0.1:8000/admin/`.
 
