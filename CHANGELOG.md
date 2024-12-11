@@ -1,3 +1,9 @@
+# Version 1.1.2 (2024-12-11)
+
+
+### Major Bug Fixes
+- Fixed issue when in production and using stripe
+
 # Version 1.1 (2024-12-08)
 
 
