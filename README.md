@@ -2,7 +2,7 @@
 
 Ecommerce website built using Django.
 
-[Website](https://ahmedelasmai.eu.pythonanywhere.com/products/)
+[Live Website](https://ahmedelasmai.eu.pythonanywhere.com/products/)
 
 ## Content
 
