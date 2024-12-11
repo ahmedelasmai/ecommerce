@@ -95,7 +95,10 @@ To install the packages in your project, follow these steps:
    STRIPE_PUBLIC_KEY=your_public_key
    STRIPE_SECRET_KEY=your_secret_key
    ```
-   
+   - add in base_url for localhost to .env (http://127.0.0.1:8000 is the default url)
+   ```
+   BASE_URL=http://127.0.0.1:8000
+   ```
 # Documentation
 
 [Read more](./docs/MAIN_DOCS.md)

@@ -8,7 +8,7 @@ from products.models import Stock
 import stripe
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
-
+base_url = settings.BASE_URL
 
 @login_required
 def stripe_checkout(request):
@@ -37,8 +37,8 @@ def stripe_checkout(request):
             payment_method_types=["card"],
             line_items=line_items,
             mode="payment",
-            success_url="http://127.0.0.1:8000/cart/success/",
-            cancel_url="http://127.0.0.1:8000/cart/cancel/",
+            success_url=f"{base_url}/cart/success/",
+            cancel_url=f"{base_url}/cart/cancel/",
         )
         return redirect(session.url)
 
