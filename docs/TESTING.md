@@ -10,8 +10,15 @@ Local Setup:
    ```bash
    ls
    ```
+2. **ensure that your virtual enviroment is active before running tests**:
+   ```bash
+   cd to dir where your virtual enviroment is located
+   ```
+   ```bash
+   venv\Scripts\activate
+   ```
 
-2. **Run the tests using Django's test command**:
+3. **Run the tests using Django's test command**:
    ```bash
    python manage.py test
    ```
