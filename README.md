@@ -4,6 +4,9 @@ Ecommerce website built using Django.
 
 [Live Website](https://ahmedelasmai.eu.pythonanywhere.com/products/)
 
+## To Do
+- finish off tests / better tests
+
 ## Content
 
 - [Ecommerce](#my-ecommerce-website)
