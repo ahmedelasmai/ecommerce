@@ -6,6 +6,8 @@ Ecommerce website built using Django.
 
 ## To Do
 - finish off tests / better tests
+- examples of clean code
+- show Go4 patterns
 
 ## Content
 
