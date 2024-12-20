@@ -1,12 +1,41 @@
+from unittest.mock import patch
+
 from django.test import TestCase
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.contrib.auth import get_user_model
 from django.urls import reverse
+from django.db.utils import OperationalError
 
 from products.models import Products, Stock
 from products.forms import ProductForm, ProductModelForm, StockModelForm
 
 User = get_user_model()
+
+class ProductTestCase(TestCase):
+    
+    @patch.object(Products, 'save', side_effect=OperationalError("Database operational error"))
+    def test_product_save_operational_error(self, mock_save):
+        self.user = User.objects.create_user(username="testuser", password="password")
+        self.image = SimpleUploadedFile(
+            name="test_image.jpg",
+            content=b"\x00\x01\x02",
+            content_type="image/jpeg",
+        )
+
+        # Create a product instance
+        product = Products(
+            name="Test Product",
+            description="Test description",
+            price=19.99,
+            category="shirt",
+            user=self.user
+        )
+
+        # Try to save and catch the expected OperationalError
+        with self.assertRaises(OperationalError):
+            product.save()
+
+        mock_save.assert_called_once()
 
 
 class ProductStockIntegrationTest(TestCase):
@@ -17,7 +46,6 @@ class ProductStockIntegrationTest(TestCase):
             content=b"\x00\x01\x02",
             content_type="image/jpeg",
         )
-        # models
         self.product = Products.objects.create(
             name="Integrated Product",
             description="Product with stock integration",
