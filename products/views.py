@@ -1,4 +1,4 @@
-from django.db import transaction
+from django.db import transaction, OperationalError
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView
 from django.contrib import messages
@@ -23,10 +23,16 @@ def upload(request):
         if product_form.is_valid() and stock_form.is_valid():
             product = product_form.save(commit=False)
             product.user = request.user
-            product.save()
+            try:
+                product.save()
+            except OperationalError as e:
+                print(f"Database error: {e}")
             stock = stock_form.save(commit=False)
             stock.product = product
-            stock.save()
+            try:
+                stock.save()
+            except OperationalError as e:
+                print(f"Database error: {e}")
             return redirect("products")
     else:
         product_form = ProductModelForm()
