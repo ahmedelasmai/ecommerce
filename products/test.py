@@ -46,7 +46,7 @@ class ProductFormTest(TestCase):
         self.assertEqual(form.cleaned_data["size"], "medium")
         self.assertEqual(form.cleaned_data["quantity"], 2)
 
-    def test_invalid_product_form(self):
+    def test_invalid_product_form_negative_quantity(self):
         # Test with invalid data
         form_data = {
             "size": "",
@@ -58,7 +58,7 @@ class ProductFormTest(TestCase):
 
 
 class ProductModelFormTest(TestCase):
-    def test_invalid_product_model_form(self):
+    def test_invalid_product_model_form_name_price(self):
         form_data = {
             "name": "",
             "price": -5.00,
