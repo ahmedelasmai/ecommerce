@@ -4,7 +4,6 @@ import sys
 from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
-
 # Load environment variables from .env file
 BASE_DIR = Path(__file__).resolve().parent.parent
 env_path = load_dotenv(os.path.join(BASE_DIR, ".env"))
@@ -22,9 +21,10 @@ SECRET_KEY = os.environ.get(
 
 # Determine if the environment is production, development, or testing
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
-ALLOWED_HOSTS = ["ahmedelasmai.eu.pythonanywhere.com"] if not DEBUG else []
+# ALLOWED_HOSTS = ["localhost", "127.0.0.1",] if not DEBUG else []                       !!!
+ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = (
-    ["https://ahmedelasmai.eu.pythonanywhere.com"] if not DEBUG else []
+    ["http://localhost","http://127.0.0.1",] if not DEBUG else []
 )
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",   
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -49,6 +50,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 ROOT_URLCONF = "ecom.urls"
 
@@ -128,15 +131,10 @@ if "test" in sys.argv:
     TEMP_MEDIA = tempfile.TemporaryDirectory()
     MEDIA_ROOT = TEMP_MEDIA.name
 else:
-    if not DEBUG:
-        STATIC_ROOT = (
-            "/home/ahmedelasmai/ahmedelasmai.eu.pythonanywhere.com/staticfiles"
-        )
-        MEDIA_ROOT = "/home/ahmedelasmai/ahmedelasmai.eu.pythonanywhere.com/mediafiles"
-    else:
-        STATICFILES_DIRS = [BASE_DIR / "ecom/static"]
-        MEDIA_ROOT = BASE_DIR / "media"
-
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+    STATICFILES_DIRS = [BASE_DIR / "ecom/static"]
+    
 # Authentication redirects
 LOGIN_REDIRECT_URL = "/products"
 LOGIN_URL = "/user/login"
@@ -159,3 +157,32 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 BASE_URL = os.environ.get("BASE_URL", "http://127.0.0.1:8000")
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
 STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY")
+
+#logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'ERROR', 
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],  
+            'level': 'ERROR',  
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['console'],  
+            'level': 'ERROR', 
+            'propagate': False,  
+        },
+        'django.server': {
+            'handlers': ['console'],  
+            'level': 'ERROR',  
+            'propagate': False,  
+        },
+    },
+}
