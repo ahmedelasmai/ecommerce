@@ -11,9 +11,12 @@ from products.forms import ProductForm, ProductModelForm, StockModelForm
 
 User = get_user_model()
 
+
 class ProductTestCase(TestCase):
-    
-    @patch.object(Products, 'save', side_effect=OperationalError("Database operational error"))
+
+    @patch.object(
+        Products, "save", side_effect=OperationalError("Database operational error")
+    )
     def test_product_save_operational_error(self, mock_save):
         self.user = User.objects.create_user(username="testuser", password="password")
         self.image = SimpleUploadedFile(
@@ -28,7 +31,7 @@ class ProductTestCase(TestCase):
             description="Test description",
             price=19.99,
             category="shirt",
-            user=self.user
+            user=self.user,
         )
 
         # Try to save and catch the expected OperationalError

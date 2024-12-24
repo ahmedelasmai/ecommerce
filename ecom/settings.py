@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
+
 # Load environment variables from .env file
 BASE_DIR = Path(__file__).resolve().parent.parent
 env_path = load_dotenv(os.path.join(BASE_DIR, ".env"))
@@ -22,9 +23,14 @@ SECRET_KEY = os.environ.get(
 # Determine if the environment is production, development, or testing
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 # ALLOWED_HOSTS = ["localhost", "127.0.0.1",] if not DEBUG else []                       !!!
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = (
-    ["http://localhost","http://127.0.0.1",] if not DEBUG else []
+    [
+        "http://localhost",
+        "http://127.0.0.1",
+    ]
+    if not DEBUG
+    else []
 )
 
 # Application definition
@@ -42,7 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",   
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -131,10 +137,10 @@ if "test" in sys.argv:
     TEMP_MEDIA = tempfile.TemporaryDirectory()
     MEDIA_ROOT = TEMP_MEDIA.name
 else:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+    MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
     STATICFILES_DIRS = [BASE_DIR / "ecom/static"]
-    
+
 # Authentication redirects
 LOGIN_REDIRECT_URL = "/products"
 LOGIN_URL = "/user/login"
@@ -158,31 +164,31 @@ BASE_URL = os.environ.get("BASE_URL", "http://127.0.0.1:8000")
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
 STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY")
 
-#logging
+# logging
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'level': 'ERROR', 
-            'class': 'logging.StreamHandler',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "level": "ERROR",
+            "class": "logging.StreamHandler",
         },
     },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],  
-            'level': 'ERROR',  
-            'propagate': True,
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": "ERROR",
+            "propagate": True,
         },
-        'django.request': {
-            'handlers': ['console'],  
-            'level': 'ERROR', 
-            'propagate': False,  
+        "django.request": {
+            "handlers": ["console"],
+            "level": "ERROR",
+            "propagate": False,
         },
-        'django.server': {
-            'handlers': ['console'],  
-            'level': 'ERROR',  
-            'propagate': False,  
+        "django.server": {
+            "handlers": ["console"],
+            "level": "ERROR",
+            "propagate": False,
         },
     },
 }
