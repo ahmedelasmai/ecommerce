@@ -1,3 +1,16 @@
+# Version 1.2 (WIP)
+
+
+### New Features
+- Dockerised the app for production
+
+### Bug Fixes
+- 
+
+### Notes
+-  Imporved docs
+
+
 # Version 1.1.2 (2024-12-11)
 
 
