@@ -1,4 +1,4 @@
-# My Ecommerce Website
+# ignore this branch
 
 Ecommerce website built using Django.
 
