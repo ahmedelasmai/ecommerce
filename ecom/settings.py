@@ -48,7 +48,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -56,8 +55,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
-
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 ROOT_URLCONF = "ecom.urls"
 
@@ -132,7 +129,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 MEDIA_URL = "/mediafiles/" if not DEBUG else "/media/"
 
-if "test" in sys.argv:
+if "test" in sys.argv:  
     # Use a temporary directory for media files during tests
     TEMP_MEDIA = tempfile.TemporaryDirectory()
     MEDIA_ROOT = TEMP_MEDIA.name
