@@ -12,6 +12,7 @@ Ecommerce website built using Django.
   - [Requirements](#requirements)
   - [Installation](#installation)
   - [Running the Project](#running-the-project)
+- [Design Patterns](#design-patterns)
 - [Documentation](#documentation)
 - [How to Test](#how-to-test)
 
@@ -100,6 +101,13 @@ To install the packages in your project, follow these steps:
    ```
    BASE_URL=http://127.0.0.1:8000
    ```
+
+# Design Patterns (work in progress)
+
+- **DRY**: I've used this throughout the repo
+- **Factory Method**: Used in ProductModelForm and StockModelForm
+- 
+
 # Documentation
 
 [Read more](./docs/MAIN_DOCS.md)
