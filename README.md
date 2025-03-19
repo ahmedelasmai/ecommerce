@@ -102,8 +102,8 @@ To install the packages in your project, follow these steps:
    BASE_URL=http://127.0.0.1:8000
    ```
 
-# Design Patterns (work in progress)
-
+# Design Patterns
+(work in progress)
 - **DRY**: I've used this throughout the repo
 - **Factory Method**: Used in ProductModelForm and StockModelForm
 - 
